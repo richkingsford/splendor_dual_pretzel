@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splendor Dual Pretzel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="main">
+    <div class="page-shell">
+      <header class="top-bar">
+        <div class="top-bar-status">
+          <span id="turn-pill" class="turn-pill"></span>
+          <span id="game-result-pill" class="turn-pill result-pill"></span>
+          <span id="status-copy" class="status-copy"></span>
+          <span id="game-result-copy" class="status-copy">First to 6 pts wins.</span>
+        </div>
+        <div class="top-bar-menu">
+          <button id="menu-toggle" class="menu-toggle" aria-label="Menu">&#9776;</button>
+          <div id="menu-dropdown" class="menu-dropdown hidden">
+            <button id="new-match" class="menu-item">New Match</button>
+            <button id="rematch-match" class="menu-item">Rematch</button>
+            <a href="index.html" class="menu-item">Home</a>
+            <a href="spectator.html" class="menu-item">Computer vs Computer</a>
+            <button id="end-game" class="menu-item menu-item--danger">End Game</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <div id="player-1-slot" class="player-slot player-slot-1"></div>
+
+        <div class="center-column">
+          <section class="panel board-panel">
+            <div class="section-heading">
+              <div>
+                <div class="section-kicker">Shared Board</div>
+                <h2>Gem Lattice</h2>
+              </div>
+              <p>Tap gems to draft for the active player.</p>
+            </div>
+            <div id="gem-grid" class="gem-grid"></div>
+            <div class="board-summary">
+              <div>
+                <span class="summary-label">Draft lane</span>
+                <strong id="draft-count">0 picks</strong>
+              </div>
+              <div>
+                <span class="summary-label">Privilege scroll</span>
+                <strong id="scroll-owner">No owner</strong>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="player-2-slot" class="player-slot player-slot-2"></div>
+      </main>
+
+      <section class="panel market-panel full-width-market">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Card Market</div>
+            <h2>Available Cards</h2>
+          </div>
+          <p>Reserve or buy cards to gain points and bonuses.</p>
+        </div>
+        <div id="market-cards" class="market-cards"></div>
+      </section>
+
+      <section class="panel action-panel full-width-action">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Controls</div>
+            <h2>Action Console</h2>
+          </div>
+          <p>Choose an action, then commit it on the board or market.</p>
+        </div>
+
+        <div class="action-chip-row">
+          <button class="action-chip is-active" data-action="draft">Draft Gems</button>
+          <button class="action-chip" data-action="reserve">Reserve Card</button>
+          <button class="action-chip" data-action="buy">Buy Card</button>
+          <button class="action-chip" data-action="scroll">Claim Scroll</button>
+        </div>
+
+        <div class="action-row">
+          <button id="claim-scroll" class="ghost-button">Commit Scroll Claim</button>
+        </div>
+      </section>
+
+      <section class="panel docked-log">
+        <div class="log-header">
+          <h3>Activity Feed</h3>
+          <span>Recent actions</span>
+        </div>
+        <ul id="activity-feed" class="activity-feed"></ul>
+      </section>
+
+      <footer class="footer-note">SD-001 foundation build.</footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+﻿Q: What part of the current Splendor Dual vision feels most important to you right now?
+A: Seeing 2 computers play the game e2e with lots of details in the logs so I can verify the logic.
+
+Q: What would make the first playable mobile version feel successful to you?
+A: Assurance that all the game components and logic are working properly. 
+
+Q: Which part of the game would you want us to prototype first?
+A: 2 computers playing against each other (random moves are fine). 
+
+Q: What should we avoid spending time on too early?
+A: UX polish, cosmetic polish.
+
+Q: Is there anything about the mobile experience you especially care about?
+A: That it looks ok on major phones and I can easily tap things.
+
+Additional human feedback (2026-03-19):
+- I wish I only saw screenshots in the screenshots folder.
+- JUst the most recent run's screenshots is fine.
+- I wish I could see screenshots at various stages of a "computer vs computer" game.
+- Move the debug and log panes to the bottom - I don't care to see those.
+- I wish I could see Comptuer 1's and Computer 2's play space (visual tokens and cards).
+
+Additional human feedback (2026-03-20):
+- I wish the tokens were circular and looked more like gems.
+- I wish the token stack on each player's play space were more visual - not just a number.
+
+Additional human feedback (2026-03-20):
+- I wish there was a single "screenshots" folder that contained 15 screenshots from the most recent regression test.
+- If it fails to take any screenshots, just add a TXT file named 'FAILED TO GRAB ANY SCREENSHOTS'.
+
+Additional human feedback (2026-03-20):
+- I still don't see a local 'Screenshots' folder with 15 screenshots from the most recent regression test.
+

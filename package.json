@@ -1,0 +1,19 @@
+﻿{
+  "name": "splendor_dual_pretzel",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Mobile-friendly web foundation for Splendor Dual.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build:site": "node scripts/build-static-site.js",
+    "deploy:netlify": "npm run build:site && npx netlify-cli deploy --prod --dir dist",
+    "check:foundation": "node scripts/check-foundation.js",
+    "check:gameplay": "node scripts/gameplay-smoke.js",
+    "check:mobile-ui": "node scripts/mobile-ui-smoke.js",
+    "check:screenshot-normalization": "node scripts/check-screenshot-normalization.js",
+    "screenshots:capture": "node scripts/capture-screenshots.js",
+    "screenshots:normalize": "node scripts/normalize-screenshot-output.js",
+    "check": "npm run check:foundation && npm run check:gameplay && npm run check:mobile-ui && npm run check:screenshot-normalization"
+  }
+}

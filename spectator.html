@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splendor Dual Pretzel - Computer vs Computer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="spectator">
+    <div class="page-shell">
+      <header class="hero panel">
+        <div class="eyebrow">Prototype 01</div>
+        <div class="hero-copy">
+          <div>
+            <h1>Computer vs Computer</h1>
+            <p>Watch an automated match unfold.</p>
+          </div>
+          <div class="hero-actions">
+            <a href="index.html" class="ghost-button nav-link">Back To Start</a>
+            <a href="play.html" class="ghost-button nav-link">Open Game Board</a>
+            <button id="new-match" class="primary-button">New Match</button>
+            <button id="rematch-match" class="ghost-button">Rematch</button>
+            <button id="end-turn" class="ghost-button">End Turn</button>
+          </div>
+        </div>
+        <div class="hero-status">
+          <span id="turn-pill" class="turn-pill"></span>
+          <span id="game-result-pill" class="turn-pill result-pill">In Progress</span>
+          <span id="status-copy" class="status-copy"></span>
+          <span id="game-result-copy" class="status-copy">First to 6 points wins. Empty market also ends it.</span>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel board-panel">
+          <div class="section-heading">
+            <div>
+              <div class="section-kicker">Shared Board</div>
+              <h2>Gem Lattice</h2>
+            </div>
+            <p>Tap gems to draft for the active player.</p>
+          </div>
+          <div id="gem-grid" class="gem-grid"></div>
+          <div class="board-summary">
+            <div>
+              <span class="summary-label">Draft lane</span>
+              <strong id="draft-count">0 picks</strong>
+            </div>
+            <div>
+              <span class="summary-label">Privilege scroll</span>
+              <strong id="scroll-owner">No owner</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel market-panel">
+          <div id="market-cards" class="market-cards"></div>
+        </section>
+
+        <section class="panel players-panel">
+          <div class="section-heading">
+            <div>
+              <div class="section-kicker">Players</div>
+              <h2>Match Overview</h2>
+            </div>
+            <p>Turn status, points, and economy at a glance.</p>
+          </div>
+          <div id="player-list" class="player-list"></div>
+        </section>
+
+        <section class="panel action-panel">
+          <div class="section-heading">
+            <div>
+              <div class="section-kicker">Controls</div>
+              <h2>Action Console</h2>
+            </div>
+            <p>Both players act automatically following legal rules.</p>
+          </div>
+
+          <div class="action-chip-row">
+            <button class="action-chip is-active" data-action="draft">Draft Gems</button>
+            <button class="action-chip" data-action="reserve">Reserve Card</button>
+            <button class="action-chip" data-action="buy">Buy Card</button>
+            <button class="action-chip" data-action="scroll">Claim Scroll</button>
+          </div>
+
+          <div class="action-row">
+            <button id="claim-scroll" class="ghost-button">Commit Scroll Claim</button>
+          </div>
+
+          <div class="spectator-card">
+            <span class="summary-label">Spectator Mode</span>
+            <strong id="spectator-state">Stopped</strong>
+            <p id="spectator-hint">Start spectator mode to watch legal actions run automatically.</p>
+            <div class="spectator-actions">
+              <button id="start-spectator" class="primary-button">Start Auto Match</button>
+              <button id="stop-spectator" class="ghost-button">Stop</button>
+              <button id="restart-spectator" class="ghost-button">Restart</button>
+            </div>
+          </div>
+
+          <div class="intent-card">
+            <span class="summary-label">Current intent</span>
+            <strong id="intent-copy"></strong>
+            <p id="intent-detail"></p>
+          </div>
+        </section>
+      </main>
+
+      <section class="panel docked-log">
+        <div class="log-header">
+          <h3>Activity Feed</h3>
+          <span>Recent actions</span>
+        </div>
+        <ul id="activity-feed" class="activity-feed"></ul>
+      </section>
+
+      <footer class="footer-note">Autoplay is isolated from the main game page.</footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

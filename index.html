@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splendor Dual Pretzel - Start</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="start">
+    <div class="page-shell start-shell">
+      <header class="hero panel start-hero">
+        <div class="eyebrow">Welcome</div>
+        <div class="hero-copy">
+          <div>
+            <h1>Splendor Dual Pretzel</h1>
+            <p>New game, continue, or spectate — one shared device.</p>
+          </div>
+        </div>
+        <div class="hero-status">
+          <span class="turn-pill">Quick Start</span>
+          <span class="status-copy">No setup, just play.</span>
+        </div>
+      </header>
+
+      <main class="start-grid">
+        <section class="panel start-card">
+          <div class="section-heading">
+            <div>
+              <div class="section-kicker">Play</div>
+              <h2>Start New Game</h2>
+            </div>
+            <p>Begin a new match.</p>
+          </div>
+          <div class="start-mode-picker">
+            <label for="start-match-mode">Match Mode</label>
+            <select id="start-match-mode">
+              <option value="hvh">Human vs Human</option>
+              <option value="hvc">Human vs Computer</option>
+            </select>
+          </div>
+          <a id="start-new-game" class="primary-button start-button" href="play.html?new=1">Start New Game</a>
+        </section>
+
+        <section class="panel start-card">
+          <div class="section-heading">
+            <div>
+              <div class="section-kicker">Resume</div>
+              <h2>Continue Last Game</h2>
+            </div>
+            <p>Resume your saved match.</p>
+          </div>
+          <a class="ghost-button start-button" href="play.html">Continue</a>
+        </section>
+
+        <section class="panel start-card">
+          <div class="section-heading">
+            <div>
+              <div class="section-kicker">Autoplay</div>
+              <h2>Computer vs Computer</h2>
+            </div>
+            <p>Watch two computers play automatically.</p>
+          </div>
+          <a class="ghost-button start-button" href="spectator.html">Open Spectator Page</a>
+        </section>
+      </main>
+
+      <footer class="footer-note">Game board is one click away.</footer>
+    </div>
+
+    <script>
+      (function() {
+        var SAVE_KEY = "splendor-dual-pretzel:match-state:v1";
+        var select = document.getElementById("start-match-mode");
+        var startLink = document.getElementById("start-new-game");
+        if (!select || !startLink) return;
+
+        // Load saved mode
+        try {
+          var raw = localStorage.getItem(SAVE_KEY);
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            if (parsed && parsed.ui && parsed.ui.matchMode) {
+              select.value = parsed.ui.matchMode;
+            }
+          }
+        } catch(e) {}
+
+        // On start, save mode into persisted state
+        startLink.addEventListener("click", function() {
+          try {
+            var raw = localStorage.getItem(SAVE_KEY);
+            var data = raw ? JSON.parse(raw) : { version: 1 };
+            if (!data.ui) data.ui = {};
+            data.ui.matchMode = select.value;
+            localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+          } catch(e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>

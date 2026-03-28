@@ -1,0 +1,16 @@
+# Local Netlify folder
+.netlify
+
+# Browser profile temp dirs
+backlog/tmp-edge-profile*/
+backlog/tmp-edge-profile3/
+backlog/tmp-edge-profile4/
+backlog/product-manager/screenshots/*/chrome-profile*/
+
+# Temp/pid files
+.tmp-tester-server.pid
+backlog/tmp-*.txt
+backlog/tmp-*.log
+
+# Build output
+dist/
